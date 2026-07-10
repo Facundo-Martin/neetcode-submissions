@@ -1,0 +1,27 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        # Store pointers in a set
+        seen = set() 
+
+        # Traverse entire linked list
+        while head:
+            if head in seen:
+                return True
+            
+            seen.add(head)
+            head = head.next
+
+        return False
+
+
+        # Input:
+        # LinkedList
+
+        # Output
+        # Boolean -> True if index != -1 else false 
