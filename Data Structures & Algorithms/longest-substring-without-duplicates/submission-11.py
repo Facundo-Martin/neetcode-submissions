@@ -1,0 +1,17 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        res = 0
+        l = 0
+        seen = set()
+
+        for r in range(len(s)):
+            # Update window (shrink right) until no duplicates found
+            while s[r] in seen:
+                l += 1
+            
+            # Add custom logic once there are no duplicates
+            seen.remove(s[r])
+            res = max(res, r - l + 1)
+
+        return res
+
